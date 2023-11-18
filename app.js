@@ -15,12 +15,12 @@ port = 3000;
 const generateVerificationCode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
-
-const verificationCode = generateVerificationCode();
+code  ="";
 // Send verification code and JWT by email
 const sendVerificationCodeAndJwtByEmail = async (email) => {
-    
     // const jwtToken = generateJwtToken(/* your user ID or additional data */);
+    const verificationCode = generateVerificationCode();
+    code = verificationCode;
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -56,7 +56,7 @@ app.post('/send-verification-code', (req, res) => {
 
     sendVerificationCodeAndJwtByEmail(email)
         .then(() => {
-            res.status(200).json({ success: true, message: 'Verification code and JWT sent successfully' ,data:{"otp_message" : verificationCode} });
+            res.status(200).json({ success: true, message: 'Verification code and JWT sent successfully' ,data :{"verificationCode" : code} });
         })
         .catch((error) => {
             console.error('Error:', error.message);
