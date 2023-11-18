@@ -39,7 +39,7 @@ const sendVerificationCodeAndJwtByEmail = async (email) => {
 
     try {
         const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: to', email,"with info",info.response);
+        console.log('Email sent: to', email,"with info",info.response , "verificationCode is : " ,verificationCode);
     } catch (error) {
         console.error('Error sending email:', error.message);
     }
