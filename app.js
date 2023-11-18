@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
@@ -6,10 +7,10 @@ require('dotenv').config();
 
 console.log(process.env.EMAIL_SENDER);
 const app = express();
- 
+EMAIL_SENDER = "kkffh54@gmail.com"
+EMAIL_SENDER_PASSWORD = "ypjn scdl bzcx duyf"
 
-const{emailSender , emailSenderPassword } = process.env;
-const port = 3000;
+port = 3000;
 
 // Generate a random 6-digit verification code
 const generateVerificationCode = () => {
@@ -25,8 +26,8 @@ const sendVerificationCodeAndJwtByEmail = async (email) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_SENDER,
-            pass: process.env.EMAIL_SENDER_PASSWORD,
+            user: EMAIL_SENDER,
+            pass: EMAIL_SENDER_PASSWORD,
         },
     });
 
@@ -64,6 +65,6 @@ app.post('/send-verification-code', (req, res) => {
         });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+app.listen(port || 3000, () => {
+    console.log(`Server is running on port ${port}`);
 });

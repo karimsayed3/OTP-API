@@ -1,0 +1,15 @@
+{
+    "env":{
+        "CONNECTION_STRING":"mongodb+srv://karim:jdtYrFpB441ViiE8@cluster0.5dwrgrb.mongodb.net/?retryWrites=true&w=majority",
+        "PORT":3000,
+        "USER":"abokhadiga6@gmail.com",
+        "PASS":"mwrlpngtlbcadnam",
+        "SERVICE":"gmail",
+        "BASE_URL":"https://quiz-app-api-z4d2.onrender.com",
+        "EMAIL_SENDER" : "kkffh54@gmail.com",
+        "EMAIL_SENDER_PASSWORD" : "ypjn scdl bzcx duyf"
+    },
+    "watch":["src"],
+    "ext": "ts,json",
+    "exec": "ts-node ./src/app.ts"
+}
