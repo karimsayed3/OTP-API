@@ -16,10 +16,10 @@ const generateVerificationCode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
-
+const verificationCode = generateVerificationCode();
 // Send verification code and JWT by email
 const sendVerificationCodeAndJwtByEmail = async (email) => {
-    const verificationCode = generateVerificationCode();
+    
     // const jwtToken = generateJwtToken(/* your user ID or additional data */);
 
     const transporter = nodemailer.createTransport({
@@ -56,7 +56,7 @@ app.post('/send-verification-code', (req, res) => {
 
     sendVerificationCodeAndJwtByEmail(email)
         .then(() => {
-            res.status(200).json({ success: true, message: 'Verification code and JWT sent successfully' });
+            res.status(200).json({ success: true, message: 'Verification code and JWT sent successfully' ,data:{"otp_message" : verificationCode} });
         })
         .catch((error) => {
             console.error('Error:', error.message);
