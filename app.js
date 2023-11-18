@@ -5,7 +5,6 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 
-console.log(process.env.EMAIL_SENDER);
 const app = express();
 EMAIL_SENDER = "kkffh54@gmail.com"
 EMAIL_SENDER_PASSWORD = "ypjn scdl bzcx duyf"
@@ -40,7 +39,7 @@ const sendVerificationCodeAndJwtByEmail = async (email) => {
 
     try {
         const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent:', info.response);
+        console.log('Email sent: to', email,"with info",info.response);
     } catch (error) {
         console.error('Error sending email:', error.message);
     }
